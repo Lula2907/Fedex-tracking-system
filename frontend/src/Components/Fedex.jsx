@@ -89,11 +89,11 @@ const Fedex = () => {
   return (
     <>
       <div className="absolute top-[50px] sm:[600px] w-full bg-white  h-full flex  flex-col items-center">
-        {/* <div className=" bg-pink-500 w-[300px] rounded-2xl mb-[50px] content-center flex justify-center items-center">
+        <div className=" bg-pink-500 w-[300px] rounded-2xl mb-[50px] content-center flex justify-center items-center">
           <h1 className="text-center text-4xl text-white uppercase pb-[30px]">
             Fedex tracking system
           </h1>
-        </div> */}
+        </div>
 
         <div className="py-8 liniar sm:[600px] w-full px-4 mx-auto max-w-2xl lg:py-16 shadow-2xl rounded-xl gradient">
           <h2 className="mb-4 text-xl font-bold text-white">Track a Package</h2>
@@ -143,11 +143,12 @@ const Fedex = () => {
             </div>
           </form>
         </div>
+        <h1 className="text-black text-3xl text-center pt-[80px] w-full">
+          TRACKING DETAILS
+        </h1>
       </div>
-      <h1 className="text-black text-3xl text-center pt-[80px]">
-        TRACKING DETAILS
-      </h1>
-      <div className="w-full p-4  ">
+
+      <div className="w-full p-4 absolute sm:top-[150%] top-[100%] ">
         {trackingDetails ? (
           <div className="bg-gray-100  rounded-lg w-full ">
             {renderDetails(trackingDetails)}
