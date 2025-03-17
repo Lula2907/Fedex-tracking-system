@@ -147,7 +147,7 @@ const Fedex = () => {
         <h1 className="text-black text-3xl text-center pt-[80px]">
           TRACKING DETAILS
         </h1>
-        <div className="p-4">
+        <div className="w-full ">
           {trackingDetails ? (
             <div className="bg-gray-100  rounded-lg w-full ">
               {renderDetails(trackingDetails)}
