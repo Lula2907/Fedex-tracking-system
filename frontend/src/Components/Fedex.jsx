@@ -96,9 +96,7 @@ const Fedex = () => {
         </div>
 
         <div className="py-8 liniar sm:[600px] w-full px-4 mx-auto max-w-2xl lg:py-16 shadow-2xl rounded-xl gradient">
-          <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            Track a Package
-          </h2>
+          <h2 className="mb-4 text-xl font-bold text-white">Track a Package</h2>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -107,7 +105,7 @@ const Fedex = () => {
           >
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div>
-                <label className="block mb-2 text-2xl font-medium text-gray-900">
+                <label className="block mb-2 text-2xl font-medium text-white">
                   Tracking Number
                 </label>
                 <input
@@ -119,7 +117,7 @@ const Fedex = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-2xl font-medium text-gray-900">
+                <label className="block mb-2 text-2xl font-medium text-white">
                   Carrier Code
                 </label>
                 <select
