@@ -147,9 +147,9 @@ const Fedex = () => {
         </h1>
       </div>
 
-      <div className="w-full p-4 absolute sm:top-[150%] top-[120%]">
+      <div className="w-full p-4 absolute sm:top-[150%] top-[120%] overflow-x-hidden">
         {trackingDetails ? (
-          <div className="bg-gray-100 rounded-lg w-full">
+          <div className="bg-gray-100 rounded-lg w-full overflow-hidden">
             {renderDetails(trackingDetails)}
           </div>
         ) : (
