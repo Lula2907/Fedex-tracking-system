@@ -5,7 +5,7 @@ import "../App.css";
 const Fedex = () => {
   const baseUrl = "https://fedex-7tk0.onrender.com";
   const [trackingNumber, setTrackingNumber] = useState("");
-  const [trackingDetails, setTrackingDetails] = useState(null);
+  const [trackingDetails, setTrackingDetails] = useState([]);
   const [carrierCode, setCarrierCode] = useState("");
   const [load, setLoad] = useState(false);
 
@@ -41,7 +41,7 @@ const Fedex = () => {
 
         const response = await fetch(`${baseUrl}/track`, request);
         const data = await response.json();
-        setTrackingDetails(data);
+
         setLoad(false);
 
         if (response.ok) {
@@ -50,6 +50,7 @@ const Fedex = () => {
             text: "Tracking information retrieved successfully",
             icon: "success",
           });
+          setTrackingDetails(data.output.completeTrackResults[0].trackResults[0]);
         } else {
           Swal.fire({
             title: "Failed to track",
@@ -64,41 +65,19 @@ const Fedex = () => {
       }
     }
   };
-
-  const renderDetails = (data, level = 0) => {
-    if (typeof data !== "object" || data === null) {
-      return <span>{data}</span>;
-    }
-
-    return (
-      <div className="w-full">
-        {Object.entries(data).map(([key, value]) => (
-          <div
-            className="flex w-full sm:flex-row flex-col rounded items-center justify-center sm:text-left text-center"
-            key={key}
-          >
-            <strong className="uppercase">{key}:</strong>
-            {typeof value === "object" ? (
-              renderDetails(value, level + 1)
-            ) : (
-              <span> {value}</span>
-            )}
-          </div>
-        ))}
-      </div>
-    );
-  };
+  // console.log(trackingDetails.scanEvents[0]);
+  
 
   return (
     <>
-      <div className="absolute top-[50px] sm:[600px] w-full bg-white h-full flex flex-col items-center">
-        <div className="bg-pink-500 w-[300px] rounded-2xl mb-[50px] content-center flex justify-center items-center">
+      <div className="absolute top-[50px] w-full bg-white h-full flex flex-col items-center">
+        <div className="bg-pink-500 w-[300px] rounded-2xl mb-[50px] flex justify-center items-center">
           <h1 className="text-center text-4xl text-white uppercase pb-[30px]">
-            Fedex tracking system
+            Fedex Tracking System
           </h1>
         </div>
 
-        <div className="py-8 liniar sm:[600px] w-full px-4 mx-auto max-w-2xl lg:py-16 shadow-2xl rounded-xl gradient">
+        <div className="py-8 w-full px-4 mx-auto max-w-2xl lg:py-16 shadow-2xl rounded-xl liniar">
           <h2 className="mb-4 text-xl font-bold text-white">Track a Package</h2>
           <form
             onSubmit={(e) => {
@@ -106,7 +85,7 @@ const Fedex = () => {
               trackInfo();
             }}
           >
-            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 ">
               <div>
                 <label className="block mb-2 text-2xl font-medium text-white">
                   Tracking Number
@@ -125,13 +104,10 @@ const Fedex = () => {
                 </label>
                 <select
                   value={carrierCode}
-                  onChange={(e) => {
-                    setCarrierCode(e.target.value);
-                  }}
+                  onChange={(e) => setCarrierCode(e.target.value)}
                   className="bg-white rounded w-[200px] h-[40px]"
-                  name="carrierCode"
                 >
-                  <option value="">SELECT A CARRIAR CODE</option>
+                  <option value="">SELECT A CARRIER CODE</option>
                   <option value="FDXE">FDXE</option>
                 </select>
               </div>
@@ -167,21 +143,22 @@ const Fedex = () => {
             </div>
           </form>
         </div>
-        <h1 className="text-black text-3xl text-center pt-[80px] w-full">
-          TRACKING DETAILS
-        </h1>
       </div>
 
       <div className="w-full p-4 absolute sm:top-[150%] top-[120%] overflow-x-hidden">
-        {trackingDetails ? (
-          <div className="bg-gray-100 rounded-lg w-full overflow-hidden">
-            {renderDetails(trackingDetails)}
+        <h1 className="text-5xl text-center pb-[10px] font-bold text-purple-600 underline">
+          Travel History
+        </h1>
+        {trackingDetails.dateAndTimes?.map((data, index) => (
+          <div key={index} className="flex gap-10 justify-between items-center bg-gray-100 p-4 my-2 rounded-lg shadow-md border-l-4 border-purple-500">
+            <div className="text-lg font-semibold text-gray-700">
+              {new Date(data.dateTime).toLocaleString("en-US", {
+                weekday: "long", year: "2-digit", month: "numeric", day: "numeric",
+              })}
+            </div>
+            <div className="text-lg font-medium text-gray-600">{data.type}</div>
           </div>
-        ) : (
-          <p className="text-center text-gray-500">
-            No tracking details available
-          </p>
-        )}
+        ))}
       </div>
     </>
   );
