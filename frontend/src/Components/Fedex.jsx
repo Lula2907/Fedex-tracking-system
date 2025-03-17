@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import "../App.css";
 
 const Fedex = () => {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://fedex-7tk0.onrender.com";
   const [trackingNumber, setTrackingNumber] = useState("");
   const [trackingDetails, setTrackingDetails] = useState(null);
   const [carrierCode, setCarrierCode] = useState("");
