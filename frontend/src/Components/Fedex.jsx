@@ -68,10 +68,10 @@ const Fedex = () => {
     }
 
     return (
-      <div className=" w-full relative gap-[50px]">
+      <div className=" w-full relative ">
         {Object.entries(data).map(([key, value]) => (
           <div
-            className="flex sm:flex-row flex-col rounded items-center justify-center "
+            className="flex sm:flex-row flex-col rounded p-0 items-center justify-center sm:text-left text-center "
             key={key}
           >
             <strong className=" w-full uppercase">{key}:</strong>
