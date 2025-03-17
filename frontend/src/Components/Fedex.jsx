@@ -71,10 +71,10 @@ const Fedex = () => {
       <div className="w-full ">
         {Object.entries(data).map(([key, value]) => (
           <div
-            className="flex w-full sm:flex-row flex-col rounded p-0 items-center justify-center sm:text-left text-center "
+            className="flex w-full sm:flex-row flex-col rounded  items-center justify-center sm:text-left text-center "
             key={key}
           >
-            <strong className=" w-full uppercase">{key}:</strong>
+            <strong className="uppercase">{key}:</strong>
             {typeof value === "object" ? (
               renderDetails(value, level + 1)
             ) : (
