@@ -71,7 +71,7 @@ const Fedex = () => {
       <div className="w-full ">
         {Object.entries(data).map(([key, value]) => (
           <div
-            className="flex sm:flex-row flex-col rounded p-0 items-center justify-center sm:text-left text-center "
+            className="flex w-full sm:flex-row flex-col rounded p-0 items-center justify-center sm:text-left text-center "
             key={key}
           >
             <strong className=" w-full uppercase">{key}:</strong>
@@ -147,7 +147,7 @@ const Fedex = () => {
         <h1 className="text-black text-3xl text-center pt-[80px]">
           TRACKING DETAILS
         </h1>
-        <div className="w-full ">
+        <div className="w-full p-4  ">
           {trackingDetails ? (
             <div className="bg-gray-100  rounded-lg w-full ">
               {renderDetails(trackingDetails)}
