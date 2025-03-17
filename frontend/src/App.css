@@ -13,7 +13,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(28,9,121,1) 28%, rgba
 
 
 @media only screen and (max-width:600px) {
-  html{
+  html,body{
     overflow-x: hidden;
   }
 }

@@ -68,17 +68,17 @@ const Fedex = () => {
     }
 
     return (
-      <div className="w-full ">
+      <div className="w-full">
         {Object.entries(data).map(([key, value]) => (
           <div
-            className="flex w-full sm:flex-row flex-col rounded  items-center justify-center sm:text-left text-center "
+            className="flex w-full sm:flex-row flex-col rounded items-center justify-center sm:text-left text-center"
             key={key}
           >
             <strong className="uppercase">{key}:</strong>
             {typeof value === "object" ? (
               renderDetails(value, level + 1)
             ) : (
-              <span className=""> {value}</span>
+              <span> {value}</span>
             )}
           </div>
         ))}
@@ -88,8 +88,8 @@ const Fedex = () => {
 
   return (
     <>
-      <div className="absolute top-[50px] sm:[600px] w-full bg-white  h-full flex  flex-col items-center">
-        <div className=" bg-pink-500 w-[300px] rounded-2xl mb-[50px] content-center flex justify-center items-center">
+      <div className="absolute top-[50px] sm:[600px] w-full bg-white h-full flex flex-col items-center">
+        <div className="bg-pink-500 w-[300px] rounded-2xl mb-[50px] content-center flex justify-center items-center">
           <h1 className="text-center text-4xl text-white uppercase pb-[30px]">
             Fedex tracking system
           </h1>
@@ -127,9 +127,8 @@ const Fedex = () => {
                   }}
                   className="bg-white rounded w-[200px] h-[40px]"
                   name="carrierCode"
-                  id=""
                 >
-                  <option selected>SELECT A CARRIAR CODE</option>
+                  <option value="">SELECT A CARRIAR CODE</option>
                   <option value="FDXE">FDXE</option>
                 </select>
               </div>
@@ -148,9 +147,9 @@ const Fedex = () => {
         </h1>
       </div>
 
-      <div className="w-full p-4 absolute sm:top-[150%] top-[120%] ">
+      <div className="w-full p-4 absolute sm:top-[150%] top-[120%]">
         {trackingDetails ? (
-          <div className="bg-gray-100  rounded-lg w-full ">
+          <div className="bg-gray-100 rounded-lg w-full">
             {renderDetails(trackingDetails)}
           </div>
         ) : (
