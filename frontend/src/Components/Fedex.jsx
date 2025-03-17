@@ -143,21 +143,20 @@ const Fedex = () => {
             </div>
           </form>
         </div>
-
-        <h1 className="text-black text-3xl text-center pt-[80px]">
-          TRACKING DETAILS
-        </h1>
-        <div className="w-full p-4  ">
-          {trackingDetails ? (
-            <div className="bg-gray-100  rounded-lg w-full ">
-              {renderDetails(trackingDetails)}
-            </div>
-          ) : (
-            <p className="text-center text-gray-500">
-              No tracking details available
-            </p>
-          )}
-        </div>
+      </div>
+      <h1 className="text-black text-3xl text-center pt-[80px]">
+        TRACKING DETAILS
+      </h1>
+      <div className="w-full p-4  ">
+        {trackingDetails ? (
+          <div className="bg-gray-100  rounded-lg w-full ">
+            {renderDetails(trackingDetails)}
+          </div>
+        ) : (
+          <p className="text-center text-gray-500">
+            No tracking details available
+          </p>
+        )}
       </div>
     </>
   );
