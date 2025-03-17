@@ -74,7 +74,7 @@ const Fedex = () => {
             className="flex sm:flex-row flex-col rounded items-center justify-center "
             key={key}
           >
-            <strong className="text-xl w-full uppercase">{key}:</strong>
+            <strong className=" w-full uppercase">{key}:</strong>
             {typeof value === "object" ? (
               renderDetails(value, level + 1)
             ) : (
@@ -88,10 +88,13 @@ const Fedex = () => {
 
   return (
     <>
-      <div className="absolute top-[50px] sm:[600px] w-full bg-white  h-full">
-        <h1 className="text-center text-5xl uppercase pb-[30px]">
-          Fedex tracking system
-        </h1>
+      <div className="absolute top-[50px] sm:[600px] w-full bg-white  h-full flex  flex-col items-center">
+        <div className=" bg-pink-500 w-[300px] rounded-2xl mb-[50px] content-center flex justify-center items-center">
+          <h1 className="text-center text-4xl text-white uppercase pb-[30px]">
+            Fedex tracking system
+          </h1>
+        </div>
+
         <div className="py-8 liniar sm:[600px] w-full px-4 mx-auto max-w-2xl lg:py-16 shadow-2xl rounded-xl gradient">
           <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
             Track a Package
@@ -148,7 +151,7 @@ const Fedex = () => {
         </h1>
         <div className="p-4">
           {trackingDetails ? (
-            <div className="bg-gray-100 p-4 rounded-lg ">
+            <div className="bg-gray-100 p-4 rounded-lg w-full ">
               {renderDetails(trackingDetails)}
             </div>
           ) : (
