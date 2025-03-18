@@ -1,19 +1,38 @@
-.liniar {
-  background: rgb(255,49,49);
-background: linear-gradient(169deg, rgba(255,49,49,1) 0%, rgba(255,143,77,1) 100%);
-}
-.gradiant{
-  background: rgb(255,49,49);
-  background: linear-gradient(169deg, rgba(255,49,49,1) 0%, rgba(255,143,77,1) 100%);
-}
-.liniar1{
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(28,9,121,1) 28%, rgba(99,9,121,1) 58%);
+.timeline {
+  position: relative;
+  padding: 20px 0;
 }
 
+.timeline-item {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 30px;
+}
 
-@media only screen and (max-width:600px) {
-  html,body{
-    overflow-x: hidden;
-  }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  background: #6c63ff; /* Change this color as needed */
+  border-radius: 50%;
+}
+
+.timeline-content {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #6c63ff; /* Same as the dot color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.timeline-content p {
+  margin: 5px 0 0 0;
 }
